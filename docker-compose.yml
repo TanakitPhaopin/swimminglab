@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/swimminglab
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: swimminglab
+    ports:
+      - "5432:5432"
